@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
+// import { getSortedPostsData } from "../lib/posts";
 
 export default function Home() {
 	return (
@@ -23,3 +23,12 @@ export default function Home() {
 		</Layout>
 	);
 }
+
+// export async function getStaticProps() {
+// 	const allPostsData = getSortedPostsData()
+// 	return {
+// 		props: {
+// 		allPostsData
+// 	  	}
+// 	}
+// }
