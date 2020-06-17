@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Home, SignIn, SignUp } from "../pages";
+import Home from "../pages";
+import SignIn from "../pages/signIn";
+import SignUp from "../pages/signUp";
 
 export default function Header() {
 	return (
