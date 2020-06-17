@@ -1,5 +1,8 @@
 import Head from "next/head";
 import Header from "./header";
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import theme from "./theme";
 
 export const siteTitle = "TIME - social networking service.";
 
@@ -13,8 +16,12 @@ export default function Layout({ children }) {
 				/>
 				<title>{siteTitle}</title>
 			</Head>
-			<Header />
-			{children}
+			<ThemeProvider theme={theme}>
+				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+				<CssBaseline />
+				<Header />
+				{children}
+			</ThemeProvider>
 		</>
 	);
 }
