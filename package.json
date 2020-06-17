@@ -22,9 +22,10 @@
 	"homepage": "https://github.com/dergot/nextjs#readme",
 	"dependencies": {
 		"@material-ui/core": "^4.10.2",
-		"gray-matter": "^4.0.2",
-		"next": "^9.4.4",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1"
+		"fontsource-roboto": "^2.1.4",
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+		"sass": "latest"
 	}
 }
