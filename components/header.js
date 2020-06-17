@@ -1,18 +1,15 @@
 import Link from "next/link";
-import Home from "../pages";
-import SignIn from "../pages/signIn";
-import SignUp from "../pages/signUp";
 
 export default function Header() {
 	return (
 		<div>
-			<Link href={Home}>
+			<Link href="/">
 				<a>Time</a>
 			</Link>
-			<Link href={SignIn}>
+			<Link href="/">
 				<a>sign in</a>
 			</Link>
-			<Link href={SignUp}>
+			<Link href="/">
 				<a>sign up</a>
 			</Link>
 		</div>
