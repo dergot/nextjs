@@ -11,7 +11,8 @@ export default function Home() {
 				<h1>Welcome to TIME</h1>
 				<p>
 					The first in the world social networking service with
-					<p>making money ability</p>
+					<br />
+					making money ability
 				</p>
 				<p>
 					<a href="#">About Us</a>
