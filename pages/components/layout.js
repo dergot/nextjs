@@ -1,14 +1,13 @@
 import Head from "next/head";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Navbar, Nav } from "react-bootstrap";
-import NavbarToggle from "react-bootstrap/NavbarToggle";
+import Link from "next/link";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 export const siteTitle = "TIME - social networking service.";
 
 export default function Layout({ children }) {
 	return (
 		<>
+			<CssBaseline />
 			<Head>
 				<meta
 					name="viewport"
@@ -17,33 +16,17 @@ export default function Layout({ children }) {
 				<title>{siteTitle}</title>
 			</Head>
 			<header>
-				<Navbar fixed="top" bg="dark">
-					<NavbarToggle />
-					<FontAwesomeIcon icon={faBars} className="navbar_menu" />
-					<Navbar.Brand href="/" className="navbar_logo">
-						TIME
-					</Navbar.Brand>
-					<Nav variant="tabs" className="navbar_buttons">
-						<Nav.Item>
-							<Nav.Link
-								href="../pages/signin"
-								className="navbar_buttons_signIn"
-							>
-								Sign In
-							</Nav.Link>
-						</Nav.Item>
-						<Nav.Item>
-							<Nav.Link
-								href="../pages/signup"
-								className="navbar_buttons_signUp"
-							>
-								Sign Up
-							</Nav.Link>
-						</Nav.Item>
-					</Nav>
-				</Navbar>
+				<Link href="/">
+					<a>TIME</a>
+				</Link>
+				<Link href="/signin">
+					<a>Sign In</a>
+				</Link>
+				<Link href="/signup">
+					<a>Sign Up</a>
+				</Link>
 			</header>
-			{children}
+			<main>{children}</main>
 		</>
 	);
 }

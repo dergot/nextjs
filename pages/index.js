@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout, { siteTitle } from "./components/layout";
+import Layout, { siteTitle, children } from "./components/layout";
 
 export default function Home() {
 	return (
@@ -8,16 +8,14 @@ export default function Home() {
 			<Head>
 				<title>{siteTitle} Homepage</title>
 			</Head>
-			<main className="main">
-				<h1 className="main-title">Welcome to TIME</h1>
-				<p className="main-description">
-					The first in the world social networking service with
-				</p>
-				<p className="main-description-bold">making money ability</p>
-				<Link href="#">
-					<a className="main-link">About Us</a>
-				</Link>
-			</main>
+			<h1 className="main-title">Welcome to TIME</h1>
+			<p className="main-description">
+				The first in the world social networking service with
+			</p>
+			<p className="main-description-bold">making money ability</p>
+			<Link href="#">
+				<a className="main-link">About Us</a>
+			</Link>
 		</Layout>
 	);
 }

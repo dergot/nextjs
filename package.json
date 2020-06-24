@@ -21,14 +21,12 @@
 	},
 	"homepage": "https://github.com/dergot/nextjs#readme",
 	"dependencies": {
-		"@fortawesome/fontawesome-svg-core": "latest",
-		"@fortawesome/free-solid-svg-icons": "latest",
-		"@fortawesome/react-fontawesome": "latest",
-		"bootstrap": "^4.5.0",
-		"next": "latest",
-		"react": "latest",
-		"react-bootstrap": "^1.0.1",
-		"react-dom": "latest",
-		"sass": "latest"
+		"@material-ui/core": "^4.10.2",
+		"@material-ui/icons": "^4.9.1",
+		"fontsource-roboto": "^2.1.4",
+		"next": "^9.4.4",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"sass": "^1.26.9"
 	}
 }
