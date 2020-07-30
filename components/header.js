@@ -1,4 +1,4 @@
-import { Link } from "next";
+import Link from "next/link";
 import {
 	AppBar,
 	Toolbar,
@@ -63,11 +63,6 @@ export default function Header() {
 						<Link href="/signup">
 							<MenuItem onClick={handleClose}>
 								<a style={{ textDecoration: "none" }}>Sign Up</a>
-							</MenuItem>
-						</Link>
-						<Link href="/about">
-							<MenuItem onClick={handleClose}>
-								<a style={{ textDecoration: "none" }}>About Us</a>
 							</MenuItem>
 						</Link>
 					</Menu>

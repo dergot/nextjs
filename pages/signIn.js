@@ -1,9 +1,10 @@
 import Layout, { siteTitle } from "../components/layout";
-import { Head, Link } from "next";
+import Link from "next/link";
+import Head from "next/head";
 import { Typography, TextField, Button, Grid } from "@material-ui/core";
 import { useStyles } from "../components/theme";
 
-export default () => {
+export default function SignIn() {
 	const classes = useStyles();
 
 	return (
@@ -62,4 +63,4 @@ export default () => {
 			</form>
 		</Layout>
 	);
-};
+}

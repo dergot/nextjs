@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 import { Typography } from "@material-ui/core";
 import { useStyles } from "../components/theme";
 
-export default () => {
+export default function Home() {
 	const classes = useStyles();
 
 	return (
@@ -22,4 +22,4 @@ export default () => {
 			</Typography>
 		</Layout>
 	);
-};
+}
