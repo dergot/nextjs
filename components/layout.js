@@ -2,11 +2,11 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Header from "./header";
 import { theme, useStyles } from "./theme";
-import { Container } from "@material-ui/core";
+import { Container, CssBaseline } from "@material-ui/core";
 
 export const siteTitle = "TIME - social networking service";
 
-export default function Layout({ children }) {
+export default function Layout({ children, username, deleteCookie }) {
 	const classes = useStyles();
 
 	return (
@@ -19,8 +19,9 @@ export default function Layout({ children }) {
 				<title>{siteTitle}</title>
 			</Head>
 			<ThemeProvider theme={theme}>
-				<Header />
-				<Container component="main" maxWidth="xs" className={classes.featured}>
+				<CssBaseline />
+				<Header username={username || undefined} deleteCookie={deleteCookie} />
+				<Container component="main" maxWidth="xs">
 					{children}
 				</Container>
 			</ThemeProvider>

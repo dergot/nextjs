@@ -17,11 +17,13 @@ export const theme = createMuiTheme({
 });
 
 export const useStyles = makeStyles((theme) => ({
-	root: {},
 	navBar: {
-		padding: "1.5rem",
-		justifyContent: "space-between",
+		margin: theme.spacing(3, 0),
 	},
+	// navBar: {
+	// 	padding: "1.5rem",
+	// 	justifyContent: "space-between",
+	// },
 	navBurger: {},
 	navTitle: {
 		borderStyle: "solid",
@@ -31,9 +33,6 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	navButton: {
 		padding: "15px",
-	},
-	featured: {
-		textAlign: "center",
 	},
 	paper: {
 		marginTop: theme.spacing(8),
@@ -50,6 +49,6 @@ export const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(1),
 	},
 	submit: {
-		margin: theme.spacing(3, 0, 2),
+		margin: theme.spacing(3, 0),
 	},
 }));
