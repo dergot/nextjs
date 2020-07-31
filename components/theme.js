@@ -17,23 +17,6 @@ export const theme = createMuiTheme({
 });
 
 export const useStyles = makeStyles((theme) => ({
-	navBar: {
-		margin: theme.spacing(3, 0),
-	},
-	// navBar: {
-	// 	padding: "1.5rem",
-	// 	justifyContent: "space-between",
-	// },
-	navBurger: {},
-	navTitle: {
-		borderStyle: "solid",
-		borderColor: "#fff",
-		borderWidth: "0.3rem",
-		padding: "10px",
-	},
-	navButton: {
-		padding: "15px",
-	},
 	paper: {
 		marginTop: theme.spacing(8),
 		display: "flex",

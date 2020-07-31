@@ -43,17 +43,21 @@ export default function Header(props) {
 									<Typography
 										variant="h4"
 										color="textPrimary"
-										className={classes.navTitle}
+										style={{
+											borderStyle: "solid",
+											borderColor: "#fff",
+											borderWidth: "0.3rem",
+											padding: "10px",
+										}}
 									>
 										TIME
 									</Typography>
 								</a>
 							</Link>
-							<div>
-								<span>{props.username}</span>
-							</div>
+							<Typography variant="h4" color="textPrimary">
+								{props.username}
+							</Typography>
 							<IconButton
-								className={classes.navBurger}
 								color="inherit"
 								aria-controls="navbar-menu"
 								aria-haspopup="true"
@@ -62,7 +66,6 @@ export default function Header(props) {
 								<MenuIcon />
 							</IconButton>
 							<Menu
-								id="navbar-menu"
 								anchorEl={anchorEl}
 								keepMounted
 								open={Boolean(anchorEl)}
@@ -78,9 +81,21 @@ export default function Header(props) {
 										</Link>
 									</>
 								) : (
-									<Link href="/">
-										<MenuItem onClick={logOut}>Log Out</MenuItem>
-									</Link>
+									<>
+										<Link href="/account/myaccount">
+											<MenuItem onClick={handleClose}>My Account</MenuItem>
+										</Link>
+										<Link href="/">
+											<MenuItem
+												onClick={() => {
+													logOut();
+													handleClose();
+												}}
+											>
+												Log Out
+											</MenuItem>
+										</Link>
+									</>
 								)}
 							</Menu>
 						</Grid>
