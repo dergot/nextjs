@@ -1,6 +1,5 @@
 import Layout from "../components/layout";
 import { Typography } from "@material-ui/core";
-import { useStyles } from "../components/theme";
 
 const user = {
 	name: undefined,
@@ -54,8 +53,6 @@ function deleteCookie(name) {
 }
 
 export default function Home() {
-	const classes = useStyles();
-
 	return (
 		<Layout
 			username={
@@ -65,17 +62,15 @@ export default function Home() {
 			}
 			deleteCookie={deleteCookie}
 		>
-			<Typography variant="h4" className={classes.featuredTitle}>
-				Welcome to TIME
-			</Typography>
+			<Typography variant="h4">Welcome to TIME</Typography>
 			<br />
-			<Typography variant="body1" className={classes.featuredDescription}>
+			<Typography variant="body1">
 				The first in the world social networking service with
 				<br />
 				making money ability!
 			</Typography>
 			<br />
-			<Typography variant="subtitle1" className={classes.featuredSubtitle}>
+			<Typography variant="subtitle1">
 				Press <strong>"Sign Up"</strong> button to create your account!
 			</Typography>
 		</Layout>

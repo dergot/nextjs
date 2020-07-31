@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Layout, { siteTitle } from "../../components/layout";
 import Link from "next/link";
 import Head from "next/head";
-import { TextField, Button, Grid, Typography, Input } from "@material-ui/core";
-import { useStyles } from "../../components/theme";
+import { TextField, Button, Grid, Typography } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
+import { theme } from "../../components/theme";
 
 function setCookie(name, value, options = {}) {
 	options = {
@@ -59,7 +59,6 @@ const Login = ({ data }) => {
 	if (getCookie("name") && getCookie("surname")) {
 		redirect("/");
 	}
-	const classes = useStyles();
 	const result = {
 		name: undefined,
 		surname: undefined,
@@ -96,7 +95,7 @@ const Login = ({ data }) => {
 			<Head>
 				<title>{siteTitle} | Sign In</title>
 			</Head>
-			<form className={classes.form} noValidate>
+			<form style={{ width: "100%", marginTop: theme.spacing(1) }} noValidate>
 				<TextField
 					variant="outlined"
 					margin="normal"
@@ -104,7 +103,6 @@ const Login = ({ data }) => {
 					fullWidth
 					label="E-mail"
 					type="email"
-					autoComplete="current-password"
 					color="secondary"
 					value={result.name}
 					onChange={(event) => {
@@ -118,7 +116,6 @@ const Login = ({ data }) => {
 					fullWidth
 					label="Password"
 					type="password"
-					autoComplete="current-password"
 					color="secondary"
 					value={result.name}
 					onChange={(event) => {
@@ -129,9 +126,7 @@ const Login = ({ data }) => {
 					<Grid item xs={4}>
 						<Link href="/account/reset">
 							<a style={{ textDecoration: "none" }}>
-								<Typography style={{ textAlign: "center" }} color="textPrimary">
-									Forgot password?
-								</Typography>
+								<Typography color="textPrimary">Forgot password?</Typography>
 							</a>
 						</Link>
 					</Grid>

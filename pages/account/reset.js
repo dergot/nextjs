@@ -1,11 +1,8 @@
 import Layout, { siteTitle } from "../../components/layout";
 import Head from "next/head";
 import { TextField, Button, Grid, Typography } from "@material-ui/core";
-import { useStyles } from "../../components/theme";
 
 export default function Login() {
-	const classes = useStyles();
-
 	return (
 		<Layout>
 			<Head>

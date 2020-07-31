@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import Layout, { siteTitle } from "../../components/layout";
 import Link from "next/link";
 import Head from "next/head";
-import { TextField, Button, Grid, Typography, Input } from "@material-ui/core";
-import { useStyles } from "../../components/theme";
+import { TextField, Button, Grid } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
+import { theme } from "../../components/theme";
 
 const Register = ({ data }) => {
-	const classes = useStyles();
 	const result = {
 		name: undefined,
 		surname: undefined,
@@ -47,7 +46,7 @@ const Register = ({ data }) => {
 			<Head>
 				<title>{siteTitle} | Sign In</title>
 			</Head>
-			<form className={classes.form} noValidate>
+			<form style={{ width: "100%", marginTop: theme.spacing(1) }} noValidate>
 				<Grid container spacing={2}>
 					<Grid item xs>
 						<TextField
@@ -55,7 +54,6 @@ const Register = ({ data }) => {
 							margin="normal"
 							required
 							label="First Name"
-							autoFocus
 							type="text"
 							color="secondary"
 							value={result.name}
@@ -70,7 +68,6 @@ const Register = ({ data }) => {
 							margin="normal"
 							required
 							label="Second Name"
-							autoFocus
 							type="text"
 							color="secondary"
 							value={result.surname}
@@ -86,8 +83,6 @@ const Register = ({ data }) => {
 					required
 					fullWidth
 					label="Phone Number"
-					autoComplete="tel"
-					autoFocus
 					type="tel"
 					color="secondary"
 					value={result.name}
@@ -102,7 +97,6 @@ const Register = ({ data }) => {
 					fullWidth
 					label="E-mail"
 					type="email"
-					autoComplete="current-password"
 					color="secondary"
 					value={result.name}
 					onChange={(event) => {
@@ -116,7 +110,6 @@ const Register = ({ data }) => {
 					fullWidth
 					label="Password"
 					type="password"
-					autoComplete="current-password"
 					color="secondary"
 					value={result.name}
 					onChange={(event) => {
@@ -130,7 +123,6 @@ const Register = ({ data }) => {
 					fullWidth
 					label="Repeat password"
 					type="password"
-					autoComplete="current-password"
 					color="secondary"
 					value={result.name}
 					onChange={(event) => {
@@ -158,100 +150,3 @@ const Register = ({ data }) => {
 };
 
 export default Register;
-
-/*import Layout, { siteTitle } from "../../components/layout";
-import Link from "next/link";
-import Head from "next/head";
-import { TextField, Button, Grid } from "@material-ui/core";
-import { useStyles } from "../../components/theme";
-
-export default function Register() {
-	const classes = useStyles();
-
-	return (
-		<Layout>
-			<Head>
-				<title>{siteTitle} | Sign Up</title>
-			</Head>
-			<form className={classes.form} noValidate>
-				<Grid container spacing={2}>
-					<Grid item xs>
-						<TextField
-							variant="outlined"
-							margin="normal"
-							required
-							id="firstName"
-							label="First Name"
-							name="firstName"
-							autoFocus
-							type="text"
-							color="secondary"
-						></TextField>
-					</Grid>
-					<Grid item xs>
-						<TextField
-							variant="outlined"
-							margin="normal"
-							required
-							id="secondName"
-							label="Second Name"
-							name="secondName"
-							autoFocus
-							type="text"
-							color="secondary"
-						></TextField>
-					</Grid>
-				</Grid>
-				<TextField
-					variant="outlined"
-					margin="normal"
-					required
-					fullWidth
-					id="tel"
-					label="Phone Number"
-					name="tel"
-					autoComplete="tel"
-					autoFocus
-					type="tel"
-					color="secondary"
-				></TextField>
-				<TextField
-					variant="outlined"
-					margin="normal"
-					required
-					fullWidth
-					name="password"
-					label="Password"
-					type="password"
-					id="password"
-					autoComplete="current-password"
-					color="secondary"
-				></TextField>
-				<Button
-					type="submit"
-					fullWidth
-					variant="outlined"
-					color="secondary"
-					className={classes.submit}
-				>
-					Sign Up
-				</Button>
-				<Grid container>
-					<Grid item xs>
-						<Link href="#">
-							<a style={{ textDecoration: "none" }}>Forgot password?</a>
-						</Link>
-					</Grid>
-					<Grid item xs>
-						<Link href="/signup">
-							<a style={{ textDecoration: "none" }}>
-								Don't have an account? Sign Up
-							</a>
-						</Link>
-					</Grid>
-				</Grid>
-			</form>
-		</Layout>
-	);
-}
-*/

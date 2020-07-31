@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import {
 	AppBar,
@@ -11,11 +11,8 @@ import {
 	Box,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { useStyles } from "./theme";
 
 export default function Header(props) {
-	const classes = useStyles();
-
 	const [anchorEl, setAnchorEl] = React.useState(null);
 
 	const handleClick = (event) => {
@@ -37,7 +34,7 @@ export default function Header(props) {
 			<AppBar position="static">
 				<Toolbar>
 					<Box my={3} width="100%">
-						<Grid container xs justify="space-between" alignItems="center">
+						<Grid container justify="space-between" alignItems="center">
 							<Link href="/">
 								<a style={{ textDecoration: "none" }}>
 									<Typography

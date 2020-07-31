@@ -1,6 +1,5 @@
 import Layout, { siteTitle } from "../../components/layout";
 import Head from "next/head";
-import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
 export default function MyAccount() {
@@ -10,7 +9,7 @@ export default function MyAccount() {
 				<Head>
 					<title>{siteTitle} | My Account</title>
 				</Head>
-				<Typography variant="body1" color="textPrimary">
+				<Typography variant="h4" color="textPrimary">
 					My Account!
 				</Typography>
 			</Layout>
