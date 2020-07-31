@@ -7,6 +7,9 @@ export default function MyAccount() {
 	return (
 		<>
 			<Layout>
+				<Head>
+					<title>{siteTitle} | My Account</title>
+				</Head>
 				<Typography variant="body1" color="textPrimary">
 					My Account!
 				</Typography>

@@ -18,13 +18,13 @@ export default function Layout({ children, username, deleteCookie }) {
 				/>
 				<title>{siteTitle}</title>
 			</Head>
-			<CssBaseline />
 			<ThemeProvider theme={theme}>
 				<Header username={username || undefined} deleteCookie={deleteCookie} />
 				<Container component="main" maxWidth="xs">
 					{children}
 				</Container>
 			</ThemeProvider>
+			<CssBaseline />
 		</>
 	);
 }
