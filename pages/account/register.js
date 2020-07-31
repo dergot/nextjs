@@ -30,7 +30,7 @@ const Register = ({ data }) => {
 			alert("Fil arr required fields!");
 			return;
 		}
-		fetch("http://localhost:3000/api/register", {
+		fetch("/api/register", {
 			method: "POST",
 			body: JSON.stringify(result),
 		})

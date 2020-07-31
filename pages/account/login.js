@@ -75,7 +75,7 @@ const Login = ({ data }) => {
 			alert("Fil arr required fields!");
 			return;
 		}
-		fetch("http://localhost:3000/api/login", {
+		fetch("/api/login", {
 			method: "PUT",
 			body: JSON.stringify(result),
 		})
