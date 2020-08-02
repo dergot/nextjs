@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Layout, { siteTitle } from "../../components/layout";
-import Link from "next/link";
-import Head from "next/head";
+import Layout from "../../components/layout";
 import { TextField, Button, Grid } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
 import { theme } from "../../components/theme";
@@ -43,9 +41,6 @@ const Register = ({ data }) => {
 
 	return (
 		<Layout>
-			<Head>
-				<title>{siteTitle} | Sign In</title>
-			</Head>
 			<form style={{ width: "100%", marginTop: theme.spacing(1) }} noValidate>
 				<Grid container spacing={2}>
 					<Grid item xs>

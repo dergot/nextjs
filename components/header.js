@@ -8,9 +8,12 @@ import {
 	Menu,
 	MenuItem,
 	Grid,
-	Box,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import {
+	Menu as MenuIcon,
+	AccountCircle,
+	AccountBalanceWallet,
+} from "@material-ui/icons";
 
 export default function Header(props) {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -33,70 +36,98 @@ export default function Header(props) {
 		<>
 			<AppBar position="static">
 				<Toolbar>
-					<Box my={3} width="100%">
-						<Grid container justify="space-between" alignItems="center">
-							<Link href="/">
-								<a style={{ textDecoration: "none" }}>
-									<Typography
-										variant="h4"
-										color="textPrimary"
-										style={{
-											borderStyle: "solid",
-											borderColor: "#fff",
-											borderWidth: "0.3rem",
-											padding: "10px",
-										}}
-									>
-										TIME
-									</Typography>
-								</a>
-							</Link>
-							<Typography variant="h4" color="textPrimary">
-								{props.username}
-							</Typography>
-							<IconButton
-								color="inherit"
-								aria-controls="navbar-menu"
-								aria-haspopup="true"
-								onClick={handleClick}
-							>
-								<MenuIcon />
-							</IconButton>
-							<Menu
-								anchorEl={anchorEl}
-								keepMounted
-								open={Boolean(anchorEl)}
-								onClose={handleClose}
-							>
-								{!props.username ? (
-									<>
-										<Link href="/account/login">
-											<MenuItem onClick={handleClose}>Sign In</MenuItem>
-										</Link>
-										<Link href="/account/register">
-											<MenuItem onClick={handleClose}>Sign Up</MenuItem>
-										</Link>
-									</>
-								) : (
-									<>
-										<Link href="/account/myaccount">
-											<MenuItem onClick={handleClose}>My Account</MenuItem>
-										</Link>
-										<Link href="/">
-											<MenuItem
-												onClick={() => {
-													logOut();
-													handleClose();
-												}}
-											>
-												Log Out
-											</MenuItem>
-										</Link>
-									</>
-								)}
-							</Menu>
+					{props.username ? (
+						<Grid container>
+							<Grid item xs={4}>
+								<IconButton
+									color="inherit"
+									aria-controls="navbar-menu"
+									aria-haspopup="true"
+									onClick={handleClick}
+								>
+									<MenuIcon />
+								</IconButton>
+								<Menu
+									anchorEl={anchorEl}
+									keepMounted
+									open={Boolean(anchorEl)}
+									onClose={handleClose}
+								>
+									<MenuItem>
+										<AccountCircle />
+										<Typography variant="body1" color="textPrimary">
+											{props.username}
+										</Typography>
+									</MenuItem>
+									<Link href="/account/myaccount">
+										<MenuItem onClick={handleClose}>My Account</MenuItem>
+									</Link>
+									<Link href="/">
+										<MenuItem
+											onClick={() => {
+												logOut();
+												handleClose();
+											}}
+										>
+											Log Out
+										</MenuItem>
+									</Link>
+								</Menu>
+							</Grid>
+							<Grid item xs="auto">
+								<Link href="/">
+									<a style={{ textDecoration: "none" }}>
+										<Typography
+											variant="h4"
+											color="textPrimary"
+											style={{
+												borderStyle: "solid",
+												borderColor: "#fff",
+												borderWidth: "0.3rem",
+												padding: "10px 20px",
+												textAlign: "center",
+											}}
+										>
+											TIME
+										</Typography>
+									</a>
+								</Link>
+							</Grid>
+							<Grid item xs={4}>
+								<Typography variant="h6" color="textPrimary">
+									<AccountBalanceWallet />
+									$10
+								</Typography>
+							</Grid>
 						</Grid>
-					</Box>
+					) : (
+						<Grid
+							container
+							justify="center"
+							alignItems="center"
+							alignContent="center"
+						>
+							<Grid item xs="auto">
+								<Link href="/">
+									<a style={{ textDecoration: "none" }}>
+										<Typography
+											variant="h4"
+											color="textPrimary"
+											style={{
+												borderStyle: "solid",
+												borderColor: "#fff",
+												borderWidth: "0.3rem",
+												padding: "10px 20px",
+												textAlign: "center",
+											}}
+										>
+											TIME
+										</Typography>
+									</a>
+								</Link>
+							</Grid>
+						</Grid>
+					)}
 				</Toolbar>
 			</AppBar>
 		</>

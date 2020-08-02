@@ -10,7 +10,6 @@ const dbName = "users_database";
 
 async function database(req, res, next) {
 	if (!client.isConnected()) await client.connect();
-	console.log("Connected correctly to server");
 	req.dbClient = client;
 	req.db = client.db(dbName);
 	return next();

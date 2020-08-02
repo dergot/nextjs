@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Layout, { siteTitle } from "../../components/layout";
+import Layout from "../../components/layout";
 import Link from "next/link";
-import Head from "next/head";
 import { TextField, Button, Grid, Typography } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
 import { theme } from "../../components/theme";
@@ -9,7 +8,6 @@ import { theme } from "../../components/theme";
 function setCookie(name, value, options = {}) {
 	options = {
 		path: "/",
-		// при необходимости добавьте другие значения по умолчанию
 		...options,
 	};
 
@@ -92,9 +90,6 @@ const Login = ({ data }) => {
 
 	return (
 		<Layout>
-			<Head>
-				<title>{siteTitle} | Sign In</title>
-			</Head>
 			<form style={{ width: "100%", marginTop: theme.spacing(1) }} noValidate>
 				<TextField
 					variant="outlined"

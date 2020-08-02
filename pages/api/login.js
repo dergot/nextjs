@@ -12,8 +12,7 @@ handler.put(async (req, res) => {
 	let doc = await req.db
 		.collection("users")
 		.findOne({ email: data.email, password: data.password });
-
-	res.json({ url: "/", info: doc });
+	res.json({ url: "/account/myaccount", info: doc });
 });
 
 export default (req, res) => handler.apply(req, res);

@@ -1,13 +1,9 @@
-import Layout, { siteTitle } from "../../components/layout";
-import Head from "next/head";
+import Layout from "../../components/layout";
 import { TextField, Button, Grid, Typography } from "@material-ui/core";
 
 export default function Login() {
 	return (
 		<Layout>
-			<Head>
-				<title>{siteTitle} | Sign In</title>
-			</Head>
 			<Typography variant="body1" color="textPrimary">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
 				sagittis, metus quis consequat vestibulum, tellus quam eleifend ipsum,

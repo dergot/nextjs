@@ -19,11 +19,11 @@ export default function MyApp(props) {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>My page</title>
 				<meta
 					name="viewport"
 					content="minimum-scale=1, initial-scale=1, width=device-width"
 				/>
+				<title>TIME - social networking service</title>
 			</Head>
 			<ThemeProvider theme={theme}>
 				{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
