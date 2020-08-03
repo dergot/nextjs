@@ -5,7 +5,7 @@ export default function Layout({ children, username, deleteCookie }) {
 	return (
 		<>
 			<Header username={username || undefined} deleteCookie={deleteCookie} />
-			<Container component="main" maxWidth="xs">
+			<Container component="main" maxWidth="md">
 				{children}
 			</Container>
 		</>
