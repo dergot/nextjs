@@ -6,7 +6,7 @@ const url =
 
 const client = new MongoClient(url);
 
-const dbName = "users_database";
+export const dbName = "users_database";
 
 async function database(req, res, next) {
 	if (!client.isConnected()) await client.connect();

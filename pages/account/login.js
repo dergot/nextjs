@@ -80,10 +80,10 @@ const Login = ({ data }) => {
 				return response.json();
 			})
 			.then((data) => {
-				//document.cookie = `name=${data.info.name}; surname=${data.info.surname}; email=${data.info.email}; path=/`;
-				setCookie("name", data.info.name);
-				setCookie("surname", data.info.surname);
-				setCookie("email", data.info.email);
+				// document.cookie = `name=${data.info.name}; surname=${data.info.surname}; email=${data.info.email}; path=/`;
+				// setCookie("name", data.info.name);
+				// setCookie("surname", data.info.surname);
+				// setCookie("email", data.info.email);
 				window.location.href = data.url;
 			});
 	};

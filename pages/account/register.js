@@ -27,7 +27,7 @@ const Register = ({ data }) => {
 			alert("Fil arr required fields!");
 			return;
 		}
-		fetch("/api/register", {
+		fetch("/api/auth", {
 			method: "POST",
 			body: JSON.stringify(result),
 		})

@@ -36,7 +36,7 @@ export default function Header(props) {
 		<>
 			<AppBar position="static">
 				<Toolbar>
-					{props.username ? (
+					{!props.username ? (
 						<Grid container>
 							<Grid item xs={4}>
 								<IconButton

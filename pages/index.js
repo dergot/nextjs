@@ -4,56 +4,56 @@ import { TextField, Button, Grid, Typography } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
 import { theme } from "../components/theme";
 
-const user = {
-	name: undefined,
-	surrname: undefined,
-};
+// const user = {
+// 	name: undefined,
+// 	surrname: undefined,
+// };
 
-var getCookie = (name) => name;
+// var getCookie = (name) => name;
 
-if (typeof document !== "undefined") {
-	getCookie = (name) => {
-		let matches = document.cookie.match(
-			new RegExp(
-				"(?:^|; )" +
-					name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
-					"=([^;]*)"
-			)
-		);
-		return matches ? decodeURIComponent(matches[1]) : undefined;
-	};
-}
+// if (typeof document !== "undefined") {
+// 	getCookie = (name) => {
+// 		let matches = document.cookie.match(
+// 			new RegExp(
+// 				"(?:^|; )" +
+// 					name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+// 					"=([^;]*)"
+// 			)
+// 		);
+// 		return matches ? decodeURIComponent(matches[1]) : undefined;
+// 	};
+// }
 
-function setCookie(name, value, options = {}) {
-	options = {
-		path: "/",
-		// при необходимости добавьте другие значения по умолчанию
-		...options,
-	};
+// function setCookie(name, value, options = {}) {
+// 	options = {
+// 		path: "/",
+// 		// при необходимости добавьте другие значения по умолчанию
+// 		...options,
+// 	};
 
-	if (options.expires instanceof Date) {
-		options.expires = options.expires.toUTCString();
-	}
+// 	if (options.expires instanceof Date) {
+// 		options.expires = options.expires.toUTCString();
+// 	}
 
-	let updatedCookie =
-		encodeURIComponent(name) + "=" + encodeURIComponent(value);
+// 	let updatedCookie =
+// 		encodeURIComponent(name) + "=" + encodeURIComponent(value);
 
-	for (let optionKey in options) {
-		updatedCookie += "; " + optionKey;
-		let optionValue = options[optionKey];
-		if (optionValue !== true) {
-			updatedCookie += "=" + optionValue;
-		}
-	}
+// 	for (let optionKey in options) {
+// 		updatedCookie += "; " + optionKey;
+// 		let optionValue = options[optionKey];
+// 		if (optionValue !== true) {
+// 			updatedCookie += "=" + optionValue;
+// 		}
+// 	}
 
-	document.cookie = updatedCookie;
-}
+// 	document.cookie = updatedCookie;
+// }
 
-function deleteCookie(name) {
-	setCookie(name, "", {
-		"max-age": -1,
-	});
-}
+// function deleteCookie(name) {
+// 	setCookie(name, "", {
+// 		"max-age": -1,
+// 	});
+// }
 
 export default function Home({ data }) {
 	const result = {
@@ -75,7 +75,7 @@ export default function Home({ data }) {
 			!password ||
 			password !== repeatedPassword
 		) {
-			alert("Fil arr required fields!");
+			alert("Fill All Required Fields!");
 			return;
 		}
 		fetch("/api/register", {
@@ -90,21 +90,15 @@ export default function Home({ data }) {
 			});
 	};
 	return (
-		<Layout
-			username={
-				getCookie("name") && getCookie("surname")
-					? `${getCookie("name")} ${getCookie("surname")}`
-					: undefined
-			}
-			deleteCookie={deleteCookie}
-		>
+		<Layout>
 			<form style={{ width: "100%", marginTop: theme.spacing(1) }} noValidate>
 				<Grid container spacing={2}>
-					<Grid item xs>
+					<Grid item xs={6}>
 						<TextField
 							variant="outlined"
 							margin="normal"
 							required
+							fullWidth
 							label="First Name"
 							type="text"
 							color="secondary"
@@ -114,11 +108,12 @@ export default function Home({ data }) {
 							}}
 						/>
 					</Grid>
-					<Grid item xs>
+					<Grid item xs={6}>
 						<TextField
 							variant="outlined"
 							margin="normal"
 							required
+							fullWidth
 							label="Second Name"
 							type="text"
 							color="secondary"
@@ -137,7 +132,7 @@ export default function Home({ data }) {
 					label="Phone Number"
 					type="tel"
 					color="secondary"
-					value={result.name}
+					value={result.phone}
 					onChange={(event) => {
 						result.phone = event.target.value;
 					}}
@@ -150,7 +145,7 @@ export default function Home({ data }) {
 					label="E-mail"
 					type="email"
 					color="secondary"
-					value={result.name}
+					value={result.email}
 					onChange={(event) => {
 						result.email = event.target.value;
 					}}
@@ -163,7 +158,6 @@ export default function Home({ data }) {
 					label="Password"
 					type="password"
 					color="secondary"
-					value={result.name}
 					onChange={(event) => {
 						result.password = event.target.value;
 					}}
@@ -176,7 +170,6 @@ export default function Home({ data }) {
 					label="Repeat password"
 					type="password"
 					color="secondary"
-					value={result.name}
 					onChange={(event) => {
 						result.repeatedPassword = event.target.value;
 					}}
