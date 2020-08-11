@@ -26,17 +26,11 @@ export default function Header(props) {
 		setAnchorEl(null);
 	};
 
-	const logOut = () => {
-		props.deleteCookie("name");
-		props.deleteCookie("surname");
-		props.deleteCookie("email");
-	};
-
 	return (
 		<>
 			<AppBar position="static">
 				<Toolbar>
-					{!props.username ? (
+					{props.username ? (
 						<Grid container>
 							<Grid item xs={4}>
 								<IconButton
@@ -119,6 +113,7 @@ export default function Header(props) {
 												borderWidth: "0.3rem",
 												padding: "10px 20px",
 												textAlign: "center",
+												margin: "20px 0",
 											}}
 										>
 											TIME

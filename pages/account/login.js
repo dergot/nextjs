@@ -5,58 +5,7 @@ import { TextField, Button, Grid, Typography } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
 import { theme } from "../../components/theme";
 
-function setCookie(name, value, options = {}) {
-	options = {
-		path: "/",
-		...options,
-	};
-
-	if (options.expires instanceof Date) {
-		options.expires = options.expires.toUTCString();
-	}
-
-	let updatedCookie =
-		encodeURIComponent(name) + "=" + encodeURIComponent(value);
-
-	for (let optionKey in options) {
-		updatedCookie += "; " + optionKey;
-		let optionValue = options[optionKey];
-		if (optionValue !== true) {
-			updatedCookie += "=" + optionValue;
-		}
-	}
-
-	document.cookie = updatedCookie;
-}
-
-var getCookie = (name) => name;
-var redirect = (url) => url;
-
-if (typeof document !== "undefined") {
-	getCookie = (name) => {
-		let matches = document.cookie.match(
-			new RegExp(
-				"(?:^|; )" +
-					name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
-					"=([^;]*)"
-			)
-		);
-		return matches ? decodeURIComponent(matches[1]) : undefined;
-	};
-
-	redirect = (url) => {
-		window.location.href = "/";
-	};
-}
-
-if (getCookie("name") && getCookie("surname")) {
-	redirect("/");
-}
-
 const Login = ({ data }) => {
-	if (getCookie("name") && getCookie("surname")) {
-		redirect("/");
-	}
 	const result = {
 		name: undefined,
 		surname: undefined,
@@ -72,7 +21,7 @@ const Login = ({ data }) => {
 			alert("Fil arr required fields!");
 			return;
 		}
-		fetch("/api/login", {
+		fetch("/api/auth", {
 			method: "PUT",
 			body: JSON.stringify(result),
 		})
@@ -80,10 +29,6 @@ const Login = ({ data }) => {
 				return response.json();
 			})
 			.then((data) => {
-				// document.cookie = `name=${data.info.name}; surname=${data.info.surname}; email=${data.info.email}; path=/`;
-				// setCookie("name", data.info.name);
-				// setCookie("surname", data.info.surname);
-				// setCookie("email", data.info.email);
 				window.location.href = data.url;
 			});
 	};
@@ -99,7 +44,6 @@ const Login = ({ data }) => {
 					label="E-mail"
 					type="email"
 					color="secondary"
-					value={result.name}
 					onChange={(event) => {
 						result.email = event.target.value;
 					}}
@@ -112,7 +56,6 @@ const Login = ({ data }) => {
 					label="Password"
 					type="password"
 					color="secondary"
-					value={result.name}
 					onChange={(event) => {
 						result.password = event.target.value;
 					}}
