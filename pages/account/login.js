@@ -145,9 +145,12 @@ export default Login;
 export async function getServerSideProps(context) {
 	const cookie = context.req.headers.cookie;
 
-	const resp = await fetch(`https://.../api/session?${cookie}`, {
-		method: "GET",
-	});
+	const resp = await fetch(
+		`https://nextjs.legantos.now.sh/api/session?${cookie}`,
+		{
+			method: "GET",
+		}
+	);
 	const json = await resp.json();
 	const data = {
 		person: json,
