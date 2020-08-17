@@ -27,7 +27,7 @@ export default function Home({ data }) {
 			alert("Fill All Required Fields!");
 			return;
 		}
-		fetch("/api/auth", {
+		fetch("/api/register", {
 			method: "POST",
 			// headers: {
 			// 	"Content-Type": "application/json",
