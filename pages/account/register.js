@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
 import Layout from "../../components/layout";
-import { TextField, Button, Grid, Typography } from "@material-ui/core";
+import { TextField, Button, Grid } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
 import { theme } from "../../components/theme";
 
@@ -43,7 +42,7 @@ export default function Home({ data }) {
 	};
 	return (
 		<Layout>
-			<form style={{ width: "100%", marginTop: theme.spacing(1) }} noValidate>
+			<form style={{ width: "100%", marginTop: theme.spacing(1) }}>
 				<Grid container spacing={2}>
 					<Grid item xs={6}>
 						<TextField
