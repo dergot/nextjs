@@ -38,7 +38,7 @@ const MyAccount = (data) => {
 				>
 					<Grid item xs="auto">
 						<Typography variant="h6" color="textPrimary">
-							{data.person.name} {data.person.surname}
+							Welcome {data.person.name} {data.person.surname}!
 						</Typography>
 					</Grid>
 				</Grid>
