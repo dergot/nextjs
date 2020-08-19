@@ -28,7 +28,7 @@ login.put(async (req, res) => {
 					"Set-Cookie",
 					cookie.serialize("authToken", jwt, {
 						httpOnly: true,
-						secure: true,
+						// secure: true,
 						sameSite: true,
 						maxAge: 3600,
 						path: "/",

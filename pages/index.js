@@ -10,21 +10,19 @@ const MyAccount = (data) => {
 		router.replace("/account/login");
 		return (
 			<>
-				<Layout>
-					<Grid
-						container
-						justify="center"
-						alignContent="center"
-						alignItems="center"
-						style={{ marginTop: theme.spacing(10) }}
-					>
-						<Grid item xs="auto">
-							<Typography variant="h6" color="textPrimary">
-								Not Logged In! Redirecting...
-							</Typography>
-						</Grid>
+				<Grid
+					container
+					justify="center"
+					alignContent="center"
+					alignItems="center"
+					style={{ marginTop: theme.spacing(10) }}
+				>
+					<Grid item xs="auto">
+						<Typography variant="h6" color="textPrimary">
+							Not Logged In! Redirecting...
+						</Typography>
 					</Grid>
-				</Layout>
+				</Grid>
 			</>
 		);
 	}
@@ -40,7 +38,7 @@ const MyAccount = (data) => {
 				>
 					<Grid item xs="auto">
 						<Typography variant="h6" color="textPrimary">
-							{JSON.parse(data.person.name)} {JSON.parse(data.person.surname)}
+							{data.person.name} {data.person.surname}
 						</Typography>
 					</Grid>
 				</Grid>
@@ -55,7 +53,7 @@ export async function getServerSideProps(context) {
 	const cookie = context.req.headers.cookie;
 
 	const resp = await fetch(
-		`https://nextjs.legantos.now.sh/api/session?${cookie}`,
+		`https://nextjs-swart-delta.now.sh/api/session?${cookie}`,
 		{
 			method: "GET",
 		}
