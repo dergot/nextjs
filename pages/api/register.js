@@ -10,7 +10,7 @@ register.use(middleware);
 register.post(async (req, res) => {
 	let request = req;
 	let data = req.body;
-	data = JSON.parse(data);
+	// data = JSON.parse(data);
 
 	hash(data.password, 12, async function (err, hash) {
 		delete data.repeatedPassword;

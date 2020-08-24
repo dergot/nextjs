@@ -2,8 +2,11 @@ import Layout from "../../components/layout";
 import { TextField, Button, Grid } from "@material-ui/core";
 import fetch from "isomorphic-unfetch";
 import { theme } from "../../components/theme";
+import { useRouter } from "next/router";
 
 export default function Home({ data }) {
+	const router = useRouter();
+
 	const result = {
 		name: undefined,
 		surname: undefined,
@@ -28,16 +31,16 @@ export default function Home({ data }) {
 		}
 		fetch("/api/register", {
 			method: "POST",
-			// headers: {
-			// 	"Content-Type": "application/json",
-			// },
+			headers: {
+				"Content-Type": "application/json",
+			},
 			body: JSON.stringify(result),
 		})
 			.then((response) => {
 				return response.json();
 			})
 			.then((data) => {
-				window.location.href = data.url;
+				router.push(data.url);
 			});
 	};
 	return (
