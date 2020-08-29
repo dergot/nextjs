@@ -20,7 +20,7 @@ handler.get(
 	authenticated(async (req, res, personEmail, authToken) => {
 		let person = await req.db
 			.collection("users")
-			.findOne({ email: personEmail }, { _id: 0, phone: 0 });
+			.findOne({ email: personEmail });
 		res.json({
 			name: person.name,
 			surname: person.surname,
