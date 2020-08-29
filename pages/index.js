@@ -52,12 +52,9 @@ export default MyAccount;
 export async function getServerSideProps(context) {
 	const cookie = context.req.headers.cookie;
 
-	const resp = await fetch(
-		`https://nextjs-swart-delta.now.sh/api/session?${cookie}`,
-		{
-			method: "GET",
-		}
-	);
+	const resp = await fetch(`https://nextjs-swart-delta.now.sh/api/session`, {
+		method: "GET",
+	});
 	const json = await resp.json();
 	const data = {
 		person: json,

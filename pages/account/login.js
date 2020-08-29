@@ -51,7 +51,7 @@ const Login = (data) => {
 			})
 			.then((data) => {
 				if (data.correct) {
-					window.location.replace(data.url);
+					router.push(data.url);
 				} else {
 					alert(data.message);
 				}
@@ -143,12 +143,9 @@ export default Login;
 export async function getServerSideProps(context) {
 	const cookie = context.req.headers.cookie;
 
-	const resp = await fetch(
-		`https://nextjs-swart-delta.now.sh/api/session?${cookie}`,
-		{
-			method: "GET",
-		}
-	);
+	const resp = await fetch(`https://nextjs-swart-delta.now.sh/api/session`, {
+		headers: { cookie: cookie },
+	});
 	const json = await resp.json();
 	const data = {
 		person: json,
