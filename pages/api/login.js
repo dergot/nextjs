@@ -1,5 +1,5 @@
 import nextConnect from "next-connect";
-import middleware from "../../middleware/database";
+import middleware from "../../api/database";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { Secret } from "../../api/secret";
@@ -28,7 +28,7 @@ login.put(async (req, res) => {
 					"Set-Cookie",
 					cookie.serialize("authToken", jwt, {
 						httpOnly: true,
-						secure: true,
+						// secure: true,
 						sameSite: true,
 						maxAge: 3600,
 						path: "/",

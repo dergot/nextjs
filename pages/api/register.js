@@ -1,5 +1,5 @@
 import nextConnect from "next-connect";
-import middleware from "../../middleware/database";
+import middleware from "../../api/database";
 import { ObjectID } from "mongodb";
 import { hash } from "bcrypt";
 

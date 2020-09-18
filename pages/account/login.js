@@ -44,6 +44,7 @@ const Login = (data) => {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			credentials: "include",
 			body: JSON.stringify(result),
 		})
 			.then((response) => {
@@ -143,8 +144,10 @@ export default Login;
 export async function getServerSideProps(context) {
 	const cookie = context.req.headers.cookie;
 
-	const resp = await fetch(`https://nextjs-swart-delta.now.sh/api/session`, {
-		headers: { cookie: cookie },
+	const resp = await fetch(`http://localhost:3000/api/session`, {
+		method: "GET",
+		headers: { "Content-Type": "application/json", cookie: cookie },
+		credentials: "include",
 	});
 	const json = await resp.json();
 	const data = {

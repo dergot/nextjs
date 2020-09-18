@@ -6,25 +6,8 @@ import { useRouter } from "next/router";
 
 const MyAccount = (data) => {
 	const router = useRouter();
-	if (data.person.authToken == undefined && typeof window !== "undefined") {
-		router.replace("/account/login");
-		return (
-			<>
-				<Grid
-					container
-					justify="center"
-					alignContent="center"
-					alignItems="center"
-					style={{ marginTop: theme.spacing(10) }}
-				>
-					<Grid item xs="auto">
-						<Typography variant="h6" color="textPrimary">
-							Not Logged In! Redirecting...
-						</Typography>
-					</Grid>
-				</Grid>
-			</>
-		);
+	if (data.person.authToken !== undefined && typeof window !== "undefined") {
+		router.replace(data.url);
 	}
 	return (
 		<>
@@ -52,8 +35,10 @@ export default MyAccount;
 export async function getServerSideProps(context) {
 	const cookie = context.req.headers.cookie;
 
-	const resp = await fetch(`https://nextjs-swart-delta.now.sh/api/session`, {
+	const resp = await fetch(`http://localhost:3000/api/session`, {
 		method: "GET",
+		headers: { "Content-Type": "application/json", cookie: cookie },
+		credentials: "include",
 	});
 	const json = await resp.json();
 	const data = {
