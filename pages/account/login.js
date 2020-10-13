@@ -8,8 +8,6 @@ import { useRouter } from "next/router";
 const Login = (data) => {
 	const router = useRouter();
 
-	console.log(data.person.authToken);
-
 	if (data.person.authToken !== undefined && typeof window !== "undefined") {
 		router.replace("/");
 		return (
