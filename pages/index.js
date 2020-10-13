@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 
 const MyAccount = (data) => {
 	const router = useRouter();
-	if (data.person.authToken !== undefined && typeof window !== "undefined") {
-		router.replace(data.url);
+	if (data.person.authToken == undefined && typeof window !== "undefined") {
+		router.replace("/account/login");
 	}
 	return (
 		<>
@@ -35,7 +35,7 @@ export default MyAccount;
 export async function getServerSideProps(context) {
 	const cookie = context.req.headers.cookie;
 
-	const resp = await fetch(`http://localhost:3000/api/session`, {
+	const resp = await fetch(`https://nextjs.legantos.now.sh/api/session`, {
 		method: "GET",
 		headers: { "Content-Type": "application/json", cookie: cookie },
 		credentials: "include",
