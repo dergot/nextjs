@@ -4,8 +4,29 @@ import fetch from "isomorphic-unfetch";
 import { theme } from "../../components/theme";
 import { useRouter } from "next/router";
 
-export default function Home({ data }) {
+export default function Home(data) {
 	const router = useRouter();
+
+	if (data.person.authToken !== undefined && typeof window !== "undefined") {
+		router.replace(data.url);
+		return (
+			<>
+				<Grid
+					container
+					justify="center"
+					alignContent="center"
+					alignItems="center"
+					style={{ marginTop: theme.spacing(10) }}
+				>
+					<Grid item xs="auto">
+						<Typography variant="h6" color="textPrimary">
+							Successfully Logged In! Redirecting...
+						</Typography>
+					</Grid>
+				</Grid>
+			</>
+		);
+	}
 
 	const result = {
 		name: undefined,
@@ -146,4 +167,20 @@ export default function Home({ data }) {
 			</form>
 		</Layout>
 	);
+}
+
+export async function getServerSideProps(context) {
+	const cookie = context.req.headers.cookie;
+
+	const resp = await fetch(`https://nextjs.legantos.now.sh/api/session`, {
+		method: "GET",
+		headers: { "Content-Type": "application/json", cookie: cookie },
+		credentials: "include",
+	});
+	const json = await resp.json();
+	const data = {
+		person: json,
+		url: json.authToken ? "/" : null,
+	};
+	return { props: { ...data } };
 }
